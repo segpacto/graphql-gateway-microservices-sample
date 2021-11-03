@@ -1,0 +1,19 @@
+{
+  "name": "customer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --max-http-header-size=40000 index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apidevtools/swagger-express-middleware": "^4.0.0",
+    "boom": "^7.3.0",
+    "express": "^4.17.1",
+    "http-status-codes": "^2.1.4",
+    "swagger-ui-express": "^4.1.4"
+  }
+}
