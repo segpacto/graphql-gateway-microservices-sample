@@ -1,0 +1,151 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "MeetUp invoice Api",
+      "version": "1.0.0",
+      "title": "invoices API"
+    },
+    "basePath": "/invoice-api",
+    "host": "localhost:3001",
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "tags": [
+      {
+        "name": "invoice",
+        "description": "invoice entity"
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "definitions": {
+      "Invoice": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number"
+          },
+          "customerType": {
+            "type": "string"
+          },
+          "customerId": {
+            "type": "string"
+          },
+          "invoiceDate": {
+            "type": "string"
+          },
+          "invoiceNumber": {
+            "type": "string"
+          },
+          "paymentProfileId": {
+            "type": "number"
+          }
+        }
+      },
+      "Error": {
+        "description": "Generic HTTP error response",
+        "properties": {
+          "error": {
+            "description": "HTTP status message",
+            "type": "string"
+          },
+          "message": {
+            "description": "Further error details",
+            "type": "string"
+          },
+          "statusCode": {
+            "description": "HTTP status code",
+            "type": "integer"
+          },
+          "errorDetails": {
+            "type": "array",
+            "description": "A non-mandatory field that can be use to add custom information"
+          }
+        },
+        "readOnly": true,
+        "required": [
+          "error",
+          "message",
+          "statusCode"
+        ],
+        "type": "object"
+      }
+    },
+    "paths": {
+      "/invoices/customer/{customerId}": {
+        "get": {
+          "tags": [
+            "invoice"
+          ],
+          "operationId": "getInvoicesByCustomerId",
+          "summary": "Find an invoice by customer ID",
+          "description": "Find invoices searching by customerId",
+          "parameters": [
+            {
+              "name": "customerId",
+              "in": "path",
+              "description": "customerId to search",
+              "required": true,
+              "type": "string",
+              "example": "2"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Invoice"
+                  }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "schema": {
+                "$ref": "#/definitions/Error"
+              }
+            }
+          }
+        }
+      },
+      "/invoices/{invoiceId}": {
+        "get": {
+          "tags": [
+            "invoice"
+          ],
+          "operationId": "getInvoiceById",
+          "summary": "Find an invoice by ID",
+          "description": "",
+          "parameters": [
+            {
+              "name": "invoiceId",
+              "in": "path",
+              "description": "ID of the invoice to be fetched",
+              "required": true,
+              "type": "string",
+              "example": "10"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "schema": {
+                "$ref": "#/definitions/Invoice"
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "schema": {
+                "$ref": "#/definitions/Error"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
