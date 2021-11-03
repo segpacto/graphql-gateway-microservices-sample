@@ -39,6 +39,7 @@ build/Release
 
 # Dependency directories
 customer/node_modules/
+invoice/node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files
