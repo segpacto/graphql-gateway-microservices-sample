@@ -1,5 +1,10 @@
 const gateway = require('gql-gateway')
 
+const endpointsList = [
+  { name: 'customerApi', url: 'http://localhost:3000/customer-api/swagger' },
+  { name: 'invoiceApi', url: 'http://localhost:3001/invoice-api/swagger' }
+]
+
 const localSchema = `
   extend type Customer {
     invoices: [Invoice]
@@ -45,12 +50,6 @@ const resolvers = {
     }
   }
 }
-
-
-const endpointsList = [
-  { name: 'customerApi', url: 'http://localhost:3000/customer-api/swagger' },
-  { name: 'invoiceApi', url: 'http://localhost:3001/invoice-api/swagger' }
-]
 
 gateway({ endpointsList, resolvers, localSchema })
   .then(server => server.listen(5000))
