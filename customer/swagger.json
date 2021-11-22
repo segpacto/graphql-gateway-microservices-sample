@@ -6,7 +6,7 @@
       "title": "Customers API"
     },
     "basePath": "/customer-api",
-    "host": "localhost:3000",
+    "host": "customer-api:3000",
     "consumes": [
       "application/json"
     ],
