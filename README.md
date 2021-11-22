@@ -2,6 +2,7 @@
 This Repository contains three microservices, from these two are REST services and one graphql gateway . All implemented in NodeJs.
 The idea is to demonstrate how to implement a GraphQL Gateway using REST microservices documented with OpenApi/Swagger.
 Using the mocked data from the REST microservices, graphql is able to establish relations between the data that belongs to different services.
+The graphql-gateway performs autogeneration of Types, Queries and Mutations based on the Swagger documentation of each microservice.
 
 ## Runnning all services
 To run all services
