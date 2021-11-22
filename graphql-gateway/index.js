@@ -1,8 +1,12 @@
+require('dotenv').config()
+
 const gateway = require('gql-gateway')
 
+const {customerApi, invoiceApi} = require('./config')
+
 const endpointsList = [
-  { name: 'customerApi', url: 'http://localhost:3000/customer-api/swagger' },
-  { name: 'invoiceApi', url: 'http://localhost:3001/invoice-api/swagger' }
+  { name: customerApi.name, url: customerApi.url },
+  { name: invoiceApi.name, url: invoiceApi.url }
 ]
 
 const localSchema = `

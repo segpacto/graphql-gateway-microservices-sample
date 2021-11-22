@@ -6,7 +6,7 @@
       "title": "invoices API"
     },
     "basePath": "/invoice-api",
-    "host": "localhost:3001",
+    "host": "invoice-api:3001",
     "consumes": [
       "application/json"
     ],
@@ -82,7 +82,7 @@
             "invoice"
           ],
           "operationId": "getInvoicesByCustomerId",
-          "summary": "Find an invoice by customer ID",
+          "summary": "Find invoices by customer ID",
           "description": "Find invoices searching by customerId",
           "parameters": [
             {
