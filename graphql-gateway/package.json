@@ -1,13 +1,14 @@
 {
   "name": "graphql-gateway",
   "version": "1.0.0",
-  "description": "",
+  "description": "GraphQL Gateway generated from Customer and Invoice API",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Ivan Martinez Pupo<segpacto@yahoo.es>",
+  "homepage": "https://github.com/segpacto/graphql-gateway-microservices-sample#readme",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^10.0.0",
