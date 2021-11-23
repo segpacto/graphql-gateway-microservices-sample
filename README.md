@@ -104,4 +104,4 @@ those services should be accessible.
 On the OpenAPI/Swagger documentation of each service the `host` and `basePath` should be properly configured, this is what indicates to this service where to direct all the requests.
 
 
-
+`Note`: This a simplified version of how to build a GraphQL Gateway, and it is meant to be for `educational purposes only`.
