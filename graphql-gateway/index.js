@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const gateway = require('gql-gateway')
 
-const { customerApi, invoiceApi } = require('./config')
+const { customerApi, invoiceApi, port } = require('./config')
 
 const endpointsList = [
   { name: customerApi.name, url: customerApi.url },
@@ -56,6 +56,6 @@ const resolvers = {
 }
 
 gateway({ endpointsList, resolvers, localSchema })
-  .then(server => server.listen(5000))
-  .then(console.log('Service is now running at port: 5000'))
+  .then(server => server.listen(port))
+  .then(console.log(`Service is now running at port: ${port}`))
   .catch(err => console.log(err))

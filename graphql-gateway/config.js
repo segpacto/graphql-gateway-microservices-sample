@@ -1,6 +1,7 @@
 const ENV = process.env
 
 module.exports = {
+  port: 5000,
   customerApi: {
     name: 'customerApi',
     url: ENV.CUSTOMER_API_URL || 'http://localhost:3000/customer-api/swagger'
