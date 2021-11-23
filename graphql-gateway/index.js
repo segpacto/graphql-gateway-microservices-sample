@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const gateway = require('gql-gateway')
 
-const {customerApi, invoiceApi} = require('./config')
+const { customerApi, invoiceApi } = require('./config')
 
 const endpointsList = [
   { name: customerApi.name, url: customerApi.url },

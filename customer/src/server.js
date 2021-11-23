@@ -30,7 +30,6 @@ module.exports = new Promise((resolve, reject) => {
       })
     )
 
-    //swagger json
     app.get(`${basePATH}/swagger`, (req, res) => res.json(swaggerJSON))
 
     app.use(

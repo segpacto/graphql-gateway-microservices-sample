@@ -5,7 +5,7 @@ module.exports = [
     customerId: '2',
     customerType: 'PRIVATE',
     amount: 19,
-    invoiceDate: "01-10-2021"
+    invoiceDate: '01-10-2021'
   },
   {
     paymentProfileId: 3622861,
@@ -13,7 +13,7 @@ module.exports = [
     customerId: '2',
     customerType: 'PRIVATE',
     amount: 300,
-    invoiceDate: "10-04-2020"
+    invoiceDate: '10-04-2020'
   },
   {
     paymentProfileId: 3622866,
@@ -21,6 +21,6 @@ module.exports = [
     customerId: '1',
     customerType: 'PRIVATE',
     amount: 250,
-    invoiceDate: "01-07-2019"
+    invoiceDate: '01-07-2019'
   }
 ]
