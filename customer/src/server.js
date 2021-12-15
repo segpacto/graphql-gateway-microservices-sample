@@ -1,8 +1,9 @@
-const express = require('express')
-const swaggerUi = require('swagger-ui-express')
-
 const swagger = require('@apidevtools/swagger-express-middleware')
+const swaggerUi = require('swagger-ui-express')
+const express = require('express')
 const path = require('path')
+
+const customerController = require('./controllers/customer-controller')
 
 const app = express()
 app.set('etag', false)
@@ -20,6 +21,8 @@ module.exports = new Promise((resolve, reject) => {
     if (err) {
       reject(err)
     }
+
+    // Injecting Swagger middlewares
     app.use(
       swaggerUiPath,
       swaggerUi.serve,
@@ -39,7 +42,7 @@ module.exports = new Promise((resolve, reject) => {
       middleware.validateRequest()
     )
 
-    require('./controllers/customer-controller')(router)
+    customerController(router)
 
     app.use(basePATH, router)
 

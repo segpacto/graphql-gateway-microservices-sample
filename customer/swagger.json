@@ -1,206 +1,209 @@
 {
-    "swagger": "2.0",
-    "info": {
-      "description": "MeetUp Customer Api",
-      "version": "1.0.0",
-      "title": "Customers API"
-    },
-    "basePath": "/customer-api",
-    "host": "customer-api:3000",
-    "consumes": [
-      "application/json"
-    ],
-    "produces": [
-      "application/json"
-    ],
-    "tags": [
-      {
-        "name": "customer",
-        "description": "customer entity"
+  "swagger": "2.0",
+  "info": {
+    "description": "MeetUp Customer Api",
+    "version": "1.0.0",
+    "title": "Customers API"
+  },
+  "basePath": "/customer-api",
+  "host": "customer-api:3000",
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "tags": [
+    {
+      "name": "customer",
+      "description": "customer entity"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "definitions": {
+    "Customer": {
+      "type": "object",
+      "properties": {
+        "customerId": {
+          "type": "string",
+          "readOnly": true
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "middleName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "salutation": {
+          "type": "string"
+        },
+        "addressStreet": {
+          "type": "string"
+        },
+        "addressZipCode": {
+          "type": "string"
+        },
+        "addressCity": {
+          "type": "string"
+        },
+        "addressCountryIsoCode": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "birthDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "birthPlace": {
+          "type": "string"
+        },
+        "mobilePhone": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "uuid": {
+          "type": "string"
+        },
+        "passportId": {
+          "type": "string"
+        },
+        "userState": {
+          "type": "string"
+        }
       }
-    ],
-    "schemes": [
-      "http"
-    ],
-    "definitions": {
-      "Customer": {
-        "type": "object",
-        "properties": {
-          "customerId": {
-            "type": "string",
-            "readOnly": true
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "middleName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "active": {
-            "type": "boolean"
-          },
-          "salutation": {
-            "type": "string"
-          },
-          "addressStreet": {
-            "type": "string"
-          },
-          "addressZipCode": {
-            "type": "string"
-          },
-          "addressCity": {
-            "type": "string"
-          },
-          "addressCountryIsoCode": {
-            "type": "string"
-          },
-          "language": {
-            "type": "string"
-          },
-          "birthDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "birthPlace": {
-            "type": "string"
-          },
-          "mobilePhone": {
-            "type": "string"
-          },
-          "phone": {
-            "type": "string"
-          },
-          "email": {
-            "type": "string"
-          },
-          "uuid": {
-            "type": "string"
-          },
-          "passportId": {
-            "type": "string"
-          },
-          "userState": {
-            "type": "string"
-          }
-        }
-      },
-      "CustomerSearchResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/definitions/Customer"
-            }
-          },
-          "totalCount": {
-            "type": "integer"
-          }
-        }
-      },
-      "Error": {
-        "description": "Generic HTTP error response",
-        "properties": {
-          "error": {
-            "description": "HTTP status message",
-            "type": "string"
-          },
-          "message": {
-            "description": "Further error details",
-            "type": "string"
-          },
-          "statusCode": {
-            "description": "HTTP status code",
-            "type": "integer"
-          },
-          "errorDetails": {
-            "type": "array",
-            "description": "A non-mandatory field that can be use to add custom information"
+    },
+    "CustomerSearchResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Customer"
           }
         },
-        "readOnly": true,
-        "required": [
-          "error",
-          "message",
-          "statusCode"
-        ],
-        "type": "object"
+        "totalCount": {
+          "type": "integer"
+        }
       }
     },
-    "paths": {
-      "/customers/search": {
-        "post": {
-          "operationId": "searchCustomerByName",
-          "tags": [
-            "customer"
-          ],
-          "summary": "Customer search",
-          "description": "",
-          "parameters": [
-            {
-              "in": "body",
-              "name": "body",
-              "schema": {
-                "properties": {
-                  "name":  {
-                    "type": "string",
-                    "example": "John"
-                  }
+    "Error": {
+      "description": "Generic HTTP error response",
+      "properties": {
+        "error": {
+          "description": "HTTP status message",
+          "type": "string"
+        },
+        "message": {
+          "description": "Further error details",
+          "type": "string"
+        },
+        "statusCode": {
+          "description": "HTTP status code",
+          "type": "integer"
+        },
+        "errorDetails": {
+          "type": "array",
+          "description": "A non-mandatory field that can be use to add custom information",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "readOnly": true,
+      "required": [
+        "error",
+        "message",
+        "statusCode"
+      ],
+      "type": "object"
+    }
+  },
+  "paths": {
+    "/customers/search": {
+      "post": {
+        "operationId": "searchCustomerByName",
+        "tags": [
+          "customer"
+        ],
+        "summary": "Customer search",
+        "description": "",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "John"
                 }
               }
             }
-          ],
-          "responses": {
-            "200": {
-              "description": "successful operation",
-              "schema": {
-                "$ref": "#/definitions/CustomerSearchResponse"
-              }
-            },
-            "400": {
-              "description": "Bad Request",
-              "schema": {
-                "$ref": "#/definitions/Error"
-              }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/CustomerSearchResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
             }
           }
         }
-      },
-      "/customers/{customerId}": {
-        "get": {
-          "tags": [
-            "customer"
-          ],
-          "operationId": "getCustomerById",
-          "summary": "Find a customer by ID",
-          "description": "",
-          "parameters": [
-            {
-              "name": "customerId",
-              "in": "path",
-              "description": "ID of the customer to be fetched",
-              "required": true,
-              "type": "string"
+      }
+    },
+    "/customers/{customerId}": {
+      "get": {
+        "tags": [
+          "customer"
+        ],
+        "operationId": "getCustomerById",
+        "summary": "Find a customer by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "description": "ID of the customer to be fetched",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Customer"
             }
-          ],
-          "responses": {
-            "200": {
-              "description": "successful operation",
-              "schema": {
-                "$ref": "#/definitions/Customer"
-              }
-            },
-            "404": {
-              "description": "Not Found",
-              "schema": {
-                "$ref": "#/definitions/Error"
-              }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
             }
           }
         }
       }
     }
   }
+}
