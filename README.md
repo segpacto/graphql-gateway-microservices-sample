@@ -62,8 +62,8 @@ query {
 ## Running services independently
 ### Customer-Api
 Contains the follwowing endpoints:
-`POST /customers/search # Customers search, Returns a list of Customers`
-`GET /customers/{customerId} #Find a customer by ID, Return a Customer`
+- `POST /customers/search # Customers search, Returns a list of Customers`
+- `GET /customers/{customerId} #Find a customer by ID, Return a Customer`
 
 The service can be found under the directory [`/customer`](https://github.com/segpacto/graphql-gateway-microservices-sample/tree/master/customer).
 
@@ -77,8 +77,8 @@ To use the [Swagger-UI](https://swagger.io/tools/swagger-ui/) to create the requ
 
 ### Invoice-Api
 Contains the follwowing endpoints:
-`GET /invoices/customer/{customerId} # Find invoices by customer ID, Returns a list of Invoices`
-`GET /invoices/{invoiceId} # Find an invoice by ID, Returns an Invoice`
+- `GET /invoices/customer/{customerId} # Find invoices by customer ID, Returns a list of Invoices`
+- `GET /invoices/{invoiceId} # Find an invoice by ID, Returns an Invoice`
 
 The service can be found under the directory [`/invoice`](https://github.com/segpacto/graphql-gateway-microservices-sample/tree/master/invoice).
 Running standalone service:
@@ -104,4 +104,4 @@ those services should be accessible.
 On the OpenAPI/Swagger documentation of each service the `host` and `basePath` should be properly configured, this is what indicates to this service where to direct all the requests.
 
 
-`Note`: This a simplified version of how to build a GraphQL Gateway, and it is meant to be for `educational purposes only`.
+`Note`: This a simplified version of how to build a GraphQL Gateway, and it is meant to be for `educational purposes only`. To make a proper use of an architecture like the one described here, is necessary to implement `tests`, create a proper cache policies according to your business case need, API gateway to control the access to your microservices and make partial validation of JWT token if it is the case, introduce good CI/CD strategies and keep the good practices for building APIs.
