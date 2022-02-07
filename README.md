@@ -4,6 +4,9 @@ The idea is to demonstrate how to implement a GraphQL Gateway using REST microse
 Using the mocked data from the REST microservices, graphql is able to establish relations between the data that belongs to different services.
 The graphql-gateway performs autogeneration of Types, Queries and Mutations based on the Swagger documentation of each microservice.
 
+## Article
+For a deeper understanding of the reasons and context for this Repo. Please, take a look at the [full article](https://github.com/segpacto/graphql-gateway-microservices-sample/tree/master/article.pdf).
+
 ## Runnning all services
 To run all services
 ```sh
