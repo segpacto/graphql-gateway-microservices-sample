@@ -4,6 +4,8 @@ The idea is to demonstrate how to implement a GraphQL Gateway using REST microse
 Using the mocked data from the REST microservices, graphql is able to establish relations between the data that belongs to different services.
 The graphql-gateway performs autogeneration of Types, Queries and Mutations based on the Swagger documentation of each microservice.
 
+`Note`: This a simplified version of how to build a GraphQL Gateway, and it is meant to be for `educational purposes only`. To make a proper use of an architecture like the one described here, is necessary to implement `tests`, create a proper cache policies according to your business case need, API gateway to control the access to your microservices and make partial validation of JWT token if it is the case, introduce good CI/CD strategies and keep the good practices for building APIs.
+
 ## Article
 For a deeper understanding of the reasons and context for this Repo. Please, take a look at the [full article](https://github.com/segpacto/graphql-gateway-microservices-sample/tree/master/article.pdf).
 
@@ -105,6 +107,3 @@ Can be accessed visually accessing to [`http://localhost:5000`](http://localhost
 To start this service the [OpenApi/Swagger](https://swagger.io/docs/specification/about/) documentation endpoints should be reachable, and to create Queries and Mutations
 those services should be accessible.
 On the OpenAPI/Swagger documentation of each service the `host` and `basePath` should be properly configured, this is what indicates to this service where to direct all the requests.
-
-
-`Note`: This a simplified version of how to build a GraphQL Gateway, and it is meant to be for `educational purposes only`. To make a proper use of an architecture like the one described here, is necessary to implement `tests`, create a proper cache policies according to your business case need, API gateway to control the access to your microservices and make partial validation of JWT token if it is the case, introduce good CI/CD strategies and keep the good practices for building APIs.
